@@ -1,11 +1,14 @@
 # hexo-next-photos
 
+中文说明请移步：[NexT主题插件hexo-next-photos](https://jygzyc.github.io/hexo/hexo-next-photos)
+
 ## what is it
 
 - This package achieves a waterfall album page for Hexo Next theme.
 
 - Example: my blog: [https://jygzyc.github.io/photos](https://jygzyc.github.io/photos)
 ![result](img/result.jpg)
+
   
 ## How to use
 
@@ -179,12 +182,22 @@ blog
 
 - The `thumbnailUrl` and `photoUrl` are now only support repos URL.
 
+- put my blog `_config.yml` as an example:
+  
+  ```yml
+    hexo_next_photos:
+        thumbnailUrl:  https://dev.tencent.com/u/username/p/repos/git/raw/master/photos/ # thumbnail url
+        photoUrl:  https://dev.tencent.com/u/username/p/repos/git/raw/master/photos/ # photos url
+        photoDir:
+  ```
+
 ## TODO
 
 - achieve the figure bed URL          ()
 - achieve a flexible waterfall action ()
 
+## Thanks
 
-
+[hexo-tag-cloud](https://github.com/MikeCoder/hexo-tag-cloud)
 
 
