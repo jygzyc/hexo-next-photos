@@ -1,0 +1,13 @@
+
+node_modules/
+package-lock.json
+
+# test file
+process.py
+
+# vsode
+.vscode
+hexo-next-photos.code-workspace
+
+# npm
+.npmignore
