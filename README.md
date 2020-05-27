@@ -2,6 +2,11 @@
 
 中文说明请移步：[NexT主题插件hexo-next-photos](https://jygzyc.github.io/hexo/hexo-next-photos)
 
+## Upgrade Instructions
+
+- Now support the figure bed URL.
+- Please follow the README and reinstall this package to asure the package running correctly.
+
 ## what is it
 
 - This package achieves a waterfall album page for Hexo Next theme.
@@ -17,9 +22,10 @@
 - do `npm install hexo-next-photos --save` command
 - then you need to change your theme layout file and add the following content to that file depended on your render system
 
-### body-end.swig
+### set up body-end.swig
 
-- You should insert the following code into `/source/_data/body-end.swig`  
+- If you have installed this package before, you should delete the following code in `/source/_data/body-end.swig`  
+- If not, please skip this step.
 
 ```swig
 {% if page.type ==='photos' %}
@@ -27,9 +33,10 @@
 {% endif %}
 ```
 
-### styles.styl
+### set up styles.styl
 
-- You should insert the following code into `/source/_data/styles.styl`
+- If you have installed this package before, you should delete the following code in `/source/_data/styles.styl`
+- If not, please skip this step.
 
 ```styl
 //album style
@@ -88,16 +95,33 @@
 
 ### _config.yml
 
-- Add these config below to your _config.yml file(which under your blog root directory), and chang your URL
+- Add these config below to your _config.yml file(which under your blog root directory), and change your URL
+- If you have installed the package before, please reset the config
 
 ```yml
 # hexo-next-photos
 hexo_next_photos:
-    thumbnailUrl: # thumbnail url
-    photoUrl: # photos url
-    photoDir: 
+  modes         : figureBed # or repository
+  pictureUrl    :           # if repositry, please put your repos URL here
+  pictureDirPath:           # the dir put your photos or linkList.txt file, default: Your blog path/pictureDir/ 
 ```
 
+repositry example:
+```yml
+hexo_next_photos:
+  modes:          repository
+  pictureUrl:     https://dev.tencent.com/u/username/p/repos/git/raw/master/photos/ # photos url
+  pictureDirPath: photoDir # photo dir path is 'Your blog path/photoDir/'
+```
+
+figure bed example:
+```yaml
+# hexo-next-photos
+hexo_next_photos:
+  modes         : figureBed 
+  pictureUrl    : 
+  pictureDirPath: testDir   # your linkList file is 'Your blog path/testDir/linkList.txt'
+```
 
 ### next.yml
 
@@ -157,44 +181,32 @@ type: photos
 
 ```yml
 menu:
-+ photos: /photos/ || camera
++ photos: /photos/ || fa fa-camera
 ```
 
-### put your photos
+### linkList.txt file
 
-- create a new `originPhotos` folder under base dir
-- put your photos
+- You should put the original image URL in this file, for example:
 
 ```txt
-blog  
-└───node_modules/
-└───scaffolds/
-│   ...
-│   _config.yml
-└───oringinPhotos/
-│   │   Put your photos here, please keep your photos names same as your URL photos names
-|   |   ...
-|   package.json
-|   ...
+https://s1.ax1x.com/2020/05/21/YbueyT.jpg
+https://s1.ax1x.com/2020/05/21/YbuZlV.jpg
+https://s1.ax1x.com/2020/05/21/YbuVS0.jpg
+https://s1.ax1x.com/2020/05/21/YbukYn.jpg
+https://s1.ax1x.com/2020/05/21/YbuFFs.jpg
+https://s1.ax1x.com/2020/05/21/YbuPoj.jpg
+https://s1.ax1x.com/2020/05/21/YbuCwQ.jpg
+https://s1.ax1x.com/2020/05/21/Ybu9eg.jpg
+https://s1.ax1x.com/2020/05/21/YbuSOS.jpg
+https://s1.ax1x.com/2020/05/21/Ybnzy8.jpg
+https://s1.ax1x.com/2020/05/21/YbnxQf.jpg
+https://s1.ax1x.com/2020/05/21/YbnvSP.jpg
+https://s1.ax1x.com/2020/05/21/YbnXWt.jpg
 ```
 
 ## Some questions
 
-- The `thumbnailUrl` and `photoUrl` are now only support repos URL.
-
-- put my blog `_config.yml` as an example:
-  
-  ```yml
-    hexo_next_photos:
-        thumbnailUrl:  https://dev.tencent.com/u/username/p/repos/git/raw/master/photos/ # thumbnail url
-        photoUrl:  https://dev.tencent.com/u/username/p/repos/git/raw/master/photos/ # photos url
-        photoDir:
-  ```
-
-## TODO
-
-- achieve the figure bed URL          ()
-- achieve a flexible waterfall action ()
+- If there is some trouble, please contact me at my [blog](https://jygzyc.github.io/hexo/hexo-next-photos/)
 
 ## Thanks
 
