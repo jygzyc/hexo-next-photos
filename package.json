@@ -37,7 +37,7 @@
     "jquery": "^3.4.1"
   },
   "deprecated": false,
-  "description": "- go into your hexo system folder, and add depandence \"hexo-next-photos\": \"0.0.*\" to package.json\r - then do `npm install` command\r - then you need to change your theme layout file and add the following content to that file depended on your render system",
+  "description": "- go into your hexo system folder, and add depandence \"hexo-next-photos\": \"2.0.*\" to package.json\r - then do `npm install` command\r - then you need to change your theme layout file and add the following content to that file depended on your render system",
   "homepage": "https://github.com/jygzyc/hexo-next-photos#readme",
   "keywords": [
     "hexo",
@@ -52,7 +52,8 @@
     "url": "git+https://github.com/jygzyc/hexo-next-photos.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "help": "echo \"Please read the README.md carefully\" && exit 1"
   },
   "version": "2.0.0"
 }
