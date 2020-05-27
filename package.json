@@ -30,11 +30,11 @@
   },
   "bundleDependencies": false,
   "dependencies": {
-    "hexo-fs": "^2.0.0",
+    "hexo-fs": "^3.1.0",
     "hexo-lazyload-image": "^1.0.6",
     "hexo-log": "^1.0.0",
     "image-size": "^0.8.3",
-    "jquery": "^3.4.1"
+    "jquery": "^3.5.1"
   },
   "deprecated": false,
   "description": "- go into your hexo system folder, and add depandence \"hexo-next-photos\": \"2.0.*\" to package.json\r - then do `npm install` command\r - then you need to change your theme layout file and add the following content to that file depended on your render system",
