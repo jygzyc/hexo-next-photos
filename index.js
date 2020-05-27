@@ -97,8 +97,8 @@ function checkSetting() {
 
 checkSetting();
 
-if (modes == 'reposirty') {
-  reposirtyGen();
+if (modes == 'repository') {
+  repositoryGen();
 
 } else if (modes == 'figureBed') {
   figureBedGen();
@@ -136,7 +136,7 @@ function figureBedGen() {
 
 // Reposirty Generate 
 // from "hexo-next-photos" plugin
-function reposirtyGen() {
+function repositoryGen() {
   hexo.extend.filter.register("after_generate", function (picture) {
     log.info("---- START GENERATING PICTURE FILES ----");
     try {
