@@ -53,11 +53,37 @@ if (hexo.config.hexo_next_photos.modes) {
 
 var fs = require("hexo-fs");
 var sizeOf = require("image-size");
+const { throws } = require('assert');
 
 
 //-----------
 //generate different modes
 //-----------
+
+// handle with setting file
+
+function styleSetting(cusStylePath, styleLibPath){
+  var styleStr = fs.readFileSync(cusStylePath);
+  if (styleStr.search("ALBUM STYLE SETTING") == -1) {
+    log.info("---- START GENERATING CSS SETTING FILES ----");
+    var styleTemp = fs.readFileSync(styleLibPath);
+    fs.appendFileSync(cusStylePath, styleTemp);
+    log.info("---- END GENERATING CSS SETTING FILES ----");
+  } else {
+    log.info("---- CSS SETTING FILES EXISTS----");
+  }
+}
+function jsSetting(cusBodyEndPath, swigLibPath){
+  var swStr = fs.readFileSync(cusBodyEndPath);
+  if (swStr.search("ALBUM JS SETTING") == -1) {
+    log.info("---- START GENERATING JS SETTING FILES ----");
+    var JsTemp = fs.readFileSync(swigLibPath);
+    fs.appendFileSync(cusBodyEndPath, JsTemp);
+    log.info("---- END GENERATING JS SETTING FILES ----");
+  } else {
+    log.info("---- JS SETTING FILES EXISTS----");
+  }
+}
 
 // check album setting
 function checkSetting() {
@@ -68,29 +94,17 @@ function checkSetting() {
   log.info("---- START DETECTING SETTING FILES ----");
   try {
     if (fs.statSync(cusStylePath).isFile()) {
-      var styleStr = fs.readFileSync(cusStylePath);
-      if (styleStr.search("ALBUM STYLE SETTING") == -1) {
-        log.info("---- START GENERATING CSS SETTING FILES ----");
-        var styleTemp = fs.readFileSync(styleLibPath);
-        fs.appendFileSync(cusStylePath, styleTemp);
-        log.info("---- END GENERATING CSS SETTING FILES ----");
-      } else {
-        log.info("---- CSS SETTING FILES EXISTS----");
-      }
+      styleSetting(cusStylePath, styleLibPath);
+    } else {
+      throws(e);
     }
     if (fs.statSync(cusBodyEndPath).isFile()) {
-      var swStr = fs.readFileSync(cusBodyEndPath);
-      if (swStr.search("ALBUM JS SETTING") == -1) {
-        log.info("---- START GENERATING JS SETTING FILES ----");
-        var JsTemp = fs.readFileSync(swigLibPath);
-        fs.appendFileSync(cusBodyEndPath, JsTemp);
-        log.info("---- END GENERATING JS SETTING FILES ----");
-      } else {
-        log.info("---- JS SETTING FILES EXISTS----");
-      }
+      jsSetting(cusBodyEndPath, swigLibPath);
+    } else {
+      throws(e);
     }
   } catch (e) {
-    log.info(e);
+    log.info("Please create styles.styl and body-end.swig file !");
   }
   log.info("---- END DETECTING SETTING FILES ----");
 }

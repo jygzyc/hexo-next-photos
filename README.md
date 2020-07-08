@@ -25,7 +25,7 @@
 ### set up body-end.swig
 
 - If you have installed this package before, you should delete the following code in `/source/_data/body-end.swig`  
-- If not, please skip this step.
+- If not, make sure the file exists.
 
 ```swig
 {% if page.type ==='photos' %}
@@ -36,7 +36,7 @@
 ### set up styles.styl
 
 - If you have installed this package before, you should delete the following code in `/source/_data/styles.styl`
-- If not, please skip this step.
+- If not, make sure the file exists.
 
 ```styl
 //album style
